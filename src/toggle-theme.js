@@ -10,11 +10,10 @@ const body = document.querySelector('#body');
 toggle.addEventListener('change', onToggleChangeTheme);
 
 currentTheme();
-body.classList.add(Theme.LIGHT);
 
 function onToggleChangeTheme() {
-    if (toggle.checked === true) {
-        themeToggle = body.classList.add(Theme.DARK);
+    if (toggle.checked) {
+        body.classList.add(Theme.DARK);
         body.classList.remove(Theme.LIGHT);
         localStorage.setItem('siteTheme', true);
     } else {
@@ -26,10 +25,8 @@ function onToggleChangeTheme() {
 
 function currentTheme() {
     const themeStorage = localStorage.getItem('siteTheme');
-    if (themeStorage) {
-        if (themeStorage === 'true') {
-            body.classList.add(Theme.DARK);
-            toggle.checked = true;
-        }
-    }
+    if (themeStorage === 'true') {
+        body.classList.add(Theme.DARK);
+        toggle.checked = true;
+    } 
 }
